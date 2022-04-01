@@ -34,6 +34,13 @@ jobs:
         uses: gradle/gradle-command-action@v2
         with:
           arguments: assembleStandardRelease
+          
+      - name: Archive apk
+        if: github.repository == 'aimkiray/tachiyomiJ2K'
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-output
+          path: app/build/outputs/apk/standard/release
 
       # Sign APK and create release for tags
 
